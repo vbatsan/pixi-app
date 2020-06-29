@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="container hidden">
+        <div class="info">
+            <div class="info-item"><p>Current shape: <span id='element-type'></span></p></div>
+            <div class="info-item"><p>Area ocuped by shapes: <span id='element-sq'></span></p></div>
+        </div>
+        <div id="view"></div>
+        <div class="controls-block">
+            <div class="controls">
+                <h5>Gravity</h5>
+                <div class="controls-btns">
+                    <button id="dec-gr">-</button>
+                    <span id=gr></span>
+                    <button id='inc-gr'>+</button>
+                </div>
+            </div>
+            <div class="controls">
+                <h5>Render speed</h5>
+                <div class="controls-btns">
+                    <button id="dec-spd">-</button>
+                    <span id='spd'></span>
+                    <button id="inc-spd">+</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="./js/pixi.min.js"></script>
+    <script src="./js/figures.js"></script>
+    <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
