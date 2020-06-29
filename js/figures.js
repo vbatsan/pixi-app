@@ -1,5 +1,5 @@
-window.innerWidth < 765 ? window.gameWidth = window.innerWidth :  window.gameWidth = window.innerWidth/2
-window.gameHeight = window.innerHeight/2;
+window.innerWidth < 765 ? window.gameWidth = window.innerWidth -13 :  window.gameWidth = window.innerWidth/2
+window.gameHeight = window.innerHeight/1.5;
 window.figurs = []
 
 class Figure {
