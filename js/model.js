@@ -52,12 +52,6 @@ class Game  {
     }
 
     calculateArea(obj) {
-        // let result = 0
-        // figurs.forEach(item => {
-        //    let area =  this.app.renderer.plugins.extract.pixels(item).length/4
-        //    result += area
-        // })
-        // this.figuresArea = result
         let area = this.app.renderer.plugins.extract.pixels(obj).length/4
         return area
     }
