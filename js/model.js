@@ -11,6 +11,14 @@ class Game  {
         this.time = null
         this.currentFigure = null
         this.figuresArea = 0
+
+        window.onresize = () => {
+            window.innerWidth < 765 ? gameWidth = window.innerWidth :  gameWidth = window.innerWidth/2
+           
+            gameHeight = window.innerHeight/2
+            this.app.view.width = gameWidth
+            this.app.view.height = gameHeight
+        }
     }
    
 

@@ -1,12 +1,12 @@
 class View {
     constructor() {
-        this.$gravity = document.getElementById('gr')
-        this.$renderSpeed = document.getElementById('spd')
-        this.$incGravityBtn = document.getElementById('inc-gr')
-        this.$decGravityBtn = document.getElementById('dec-gr')
-        this.$incRenderSpeedBtn = document.getElementById('inc-spd')
-        this.$decRenderSpeedBtn = document.getElementById('dec-spd')
-        this.$curentElement = document.getElementById('element-type')
+        this.$gravity = this.getDomElement('#gr')
+        this.$renderSpeed = this.getDomElement('#spd')
+        this.$incGravityBtn = this.getDomElement('#inc-gr')
+        this.$decGravityBtn = this.getDomElement('#dec-gr')
+        this.$incRenderSpeedBtn = this.getDomElement('#inc-spd')
+        this.$decRenderSpeedBtn = this.getDomElement('#dec-spd')
+        this.$curentElement = this.getDomElement('#element-type')
         this.$figuresArea = this.getDomElement('#element-sq')
     }
    
