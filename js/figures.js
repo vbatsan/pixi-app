@@ -1,4 +1,4 @@
-window.innerWidth < 765 ? window.gameWidth = window.innerWidth -13 :  window.gameWidth = window.innerWidth/2
+window.innerWidth < 765 ? window.gameWidth = window.innerWidth -14 :  window.gameWidth = window.innerWidth/2
 window.gameHeight = window.innerHeight/1.5;
 window.figurs = []
 
