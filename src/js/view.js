@@ -1,4 +1,4 @@
-class View {
+export default class View {
     constructor() {
         this.$gravity = this.getDomElement('#gr')
         this.$renderSpeed = this.getDomElement('#spd')
@@ -8,6 +8,7 @@ class View {
         this.$decRenderSpeedBtn = this.getDomElement('#dec-spd')
         this.$curentElement = this.getDomElement('#element-type')
         this.$figuresArea = this.getDomElement('#element-sq')
+        this.$figureCounter = this.getDomElement('#figure-counter')
     }
    
     

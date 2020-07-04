@@ -1,16 +1,15 @@
-window.innerWidth < 765 ? window.gameWidth = window.innerWidth -14 :  window.gameWidth = window.innerWidth/2
-window.gameHeight = window.innerHeight/1.5;
-window.figurs = []
+import * as PIXI from 'pixi.js'
 
 class Figure {
     constructor() {
-        this.areaX = gameWidth - 150
-        this.positionX =  Math.floor((Math.random() + 0.1)* this.areaX)
-        this.graphic = new PIXI.Graphics(); 
-        this.graphic.on('pointerdown', app.clearFigure.bind(app))
+        this.positionX =  null
+        this.graphic = new PIXI.Graphics();
         this.graphic.interactive = true; 
         this.graphic.buttonMode = true;
+        this.graphic.generateColor = this.generateColor
+
     }
+
 
     generateColor() {
         const symbols = "0123456789ABCDEF"; 
@@ -26,7 +25,7 @@ class Figure {
     
 }
 
-class Circle extends Figure {
+export class Circle extends Figure {
     constructor( positionY, radius) {
         super(positionY, radius)
         this.positionY = positionY
@@ -39,12 +38,11 @@ class Circle extends Figure {
         this.graphic.beginFill(this.generateColor()); 
         this.graphic.drawCircle(x, y, this.radius); 
         this.graphic.endFill();
-        figurs.push(this.graphic) 
         return this.graphic
     }
 }
 
-class Ellipse extends Figure {
+export class Ellipse extends Figure {
     constructor(positionY, width, height) {
         super(positionY, width, height)
         this.positionY = positionY
@@ -59,13 +57,12 @@ class Ellipse extends Figure {
         this.graphic.beginFill(this.generateColor());
         this.graphic.drawEllipse(x, y, this.width, this.height);
         this.graphic.endFill();
-        figurs.push(this.graphic) 
         return this.graphic
 
     }
 }
 
-class RamdomFigure extends Figure {
+export class RamdomFigure extends Figure {
     constructor() {
         super()
         this.type  = 'random'
@@ -90,16 +87,16 @@ class RamdomFigure extends Figure {
         this.graphic.drawCircle(Math.floor(Math.random() * 70), 60, 50)
         this.graphic.endFill()
         this.graphic.interactive = false
-        container.on('pointerdown', app.clearFigure.bind(app))
         container.interactive = true; 
         container.buttonMode = true;
+        container.generateColor = this.generateColor
         container.addChild(this.graphic)
-        figurs.push(container)
+        this.graphic = container
         return container
     }
 }
 
-class Rectangle extends Figure {
+export class Rectangle extends Figure {
     constructor( positionY,width, height) {
         super( positionY,width, height)
         this.positionY = positionY
@@ -113,14 +110,13 @@ class Rectangle extends Figure {
         this.graphic.beginFill(this.generateColor())
         this.graphic.drawRect(x, y, this.width, this.height)
         this.graphic.endFill()
-            figurs.push(this.graphic) 
             return this.graphic
 
     }
    
 }
 
-class Polygon extends Figure {
+export class Polygon extends Figure {
     constructor(path, type) {
         super(path)
         this.path = path
@@ -134,7 +130,6 @@ class Polygon extends Figure {
         this.graphic.x = x
         this.graphic.y  = y
         this.graphic.endFill()
-        figurs.push(this.graphic) 
         return this.graphic
     }
 }
