@@ -16,6 +16,8 @@ export default class Controller {
         this.view.$incRenderSpeedBtn.addEventListener('click', this.incRender.bind(this))
         this.view.$decRenderSpeedBtn.addEventListener('click', this.decRender.bind(this))
         this.model.app.stage.on('pointerdown', this.model.pointerHandler.bind(this.model))
+
+        //this function updates info block every 100ms
         this.updateInfo()
     }
 

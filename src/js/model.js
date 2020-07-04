@@ -15,10 +15,11 @@ export default class Game  {
         this.generatedRate = renderRate
         this.gravity = gravity
         this.currentFigure = null
-        this.figurs = []
+        this.figurs = []                //consist of figures right now on a scene
         this.figuresArea = 0
-        this.startTimeStamp = null
+        this.startTimeStamp = null      // time stamp to render figures not 6o times per second
 
+        // change game width when resize a screen
         window.onresize = () => {
             window.innerWidth < 765 ? this.gameWidth = window.innerWidth -14 :  this.gameWidth = window.innerWidth/2
            
@@ -32,6 +33,8 @@ export default class Game  {
     createCanvas() {
             this.app.ticker.add(() => this.animate(this.gravity))
             this.app.stage.interactive = true
+
+        // allow as to interact with a scene
             this.app.stage.hitArea = new PIXI.Rectangle(0, 0, this.gameWidth, this.gameHeight);
            
         document.getElementById('view').appendChild(this.app.view);
@@ -41,6 +44,8 @@ export default class Game  {
     createFigure(figure ,x, y) {
         figure.positionX = Math.floor((Math.random() + 0.1) * (this.gameWidth -150))
         this.currentFigure = figure.type
+
+        //Expand the object with new properties in order to find out its type when clicked.
         figure.graphic.figureType = figure.type
         this.app.stage.addChild(figure.generateShape(x, y));
         figure.graphic.on('pointerdown', this.deleteFigure.bind(this))
@@ -51,6 +56,8 @@ export default class Game  {
     deleteFigure(e) {
         e.stopPropagation()
         let color = +e.target.generateColor()
+
+        // use filter to change figure's color
         const colorFilter = new ColorOverlayFilter(color)
         this.figurs.map(item => {
             if(item.figureType === e.target.figureType) {
@@ -134,6 +141,7 @@ export default class Game  {
         requestAnimationFrame(this.generateFigures.bind(this))
     }
 
+    // every time when change gravity, will update ticker with this method
     updateTicker() {
         this.app.ticker.update(this.gravity)
     }
